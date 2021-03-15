@@ -5,14 +5,16 @@ client.on("ready", () => {
 console.log("Up and running!");
 });
 
+let config = require("./config");
+
 client.on('message', message => {
      if (message.author.bot) return;
      if (message.channel.type == 'dm') return;
-     if (!message.content.toLowerCase().startsWith(process.env.PREFIX)) return;
+     if (!message.content.toLowerCase().startsWith(config.prefix)) return;
      if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return;
 
     const args = message.content
-        .trim().slice((process.env.PREFIX).length)
+        .trim().slice((config.prefix).length)
         .split(/ +/g);
     const command = args.shift().toLowerCase();
 
