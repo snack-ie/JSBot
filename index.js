@@ -2,7 +2,8 @@ require("./online");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on("ready", () => {
-console.log("Up and running!");
+let { username, discriminator, id } = client.user
+console.log(`Up and running as ${username}#${discriminator} (${id})! Ibvite me using this link: https://discord.com/oauth2/authorize?client_id=${id}&permissions=8&scope=bot`);
 });
 
 let config = require("./config");
