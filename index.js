@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on("ready", () => {
 let { username, discriminator, id } = client.user
-console.log(`Up and running as ${username}#${discriminator} (${id})! Ibvite me using this link: https://discord.com/oauth2/authorize?client_id=${id}&permissions=8&scope=bot`);
+console.log(`Up and running as ${username}#${discriminator} (${id})!\nInvite me using this link: https://discord.com/oauth2/authorize?client_id=${id}&permissions=8&scope=bot`);
 });
 
 let config = require("./config");
@@ -21,7 +21,7 @@ client.on('message', message => {
 
     try {
         const commandFile = require(`./commands/${command}.js`);
-        commandFile.run(client, message, args, data);
+        commandFile.run(client, message, args);
     } catch (err) {
     console.log(err);
   }
